@@ -12,7 +12,7 @@ export const HeroSection = () => {
         <div className="flex justify-center mb-8 opacity-0 animate-fade-in">
           <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden shadow-lg border border-primary/30 bg-gradient-to-br from-primary/40 to-transparent backdrop-blur-md p-[3px] hover:scale-105 transition-transform duration-300">
             <img
-              src="/src/assets/mohit.jpeg"
+              src="/mohit.jpeg"
               alt="Mohit Ranjan"
               className="w-full h-full object-cover rounded-full"
             />
