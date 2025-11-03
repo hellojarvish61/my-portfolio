@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Download } from "lucide-react"; // ✅ Added Download icon
 import { useEffect, useState } from "react";
 
 const navItems = [
@@ -16,12 +16,13 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.screenY > 10);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <nav
       className={cn(
@@ -40,8 +41,8 @@ export const Navbar = () => {
           </span>
         </a>
 
-        {/* desktop nav */}
-        <div className="hidden md:flex space-x-8">
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item, key) => (
             <a
               key={key}
@@ -51,21 +52,31 @@ export const Navbar = () => {
               {item.name}
             </a>
           ))}
+
+          {/* ✅ Resume Button */}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary hover:bg-primary hover:text-white hover:shadow-lg transition-all duration-300 flex items-center gap-2"
+          >
+            <Download size={18} /> Resume
+          </a>
         </div>
 
-        {/* mobile nav */}
-
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
           className="md:hidden p-2 text-foreground z-50"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
+        {/* Mobile Nav Drawer */}
         <div
           className={cn(
-            "fixed inset-0 bg-background/95 backdroup-blur-md z-40 flex flex-col items-center justify-center",
+            "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
             "transition-all duration-300 md:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
@@ -83,6 +94,17 @@ export const Navbar = () => {
                 {item.name}
               </a>
             ))}
+
+            {/* ✅ Mobile Resume Button */}
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMenuOpen(false)}
+              className="px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary hover:bg-primary hover:text-white hover:shadow-lg transition-all duration-300 flex items-center gap-2 justify-center"
+            >
+              <Download size={20} /> Resume
+            </a>
           </div>
         </div>
       </div>
