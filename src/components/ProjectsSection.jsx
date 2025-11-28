@@ -3,12 +3,12 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "SaaS Landing Page",
-    description: "A beautiful landing page app using React and Tailwind.",
-    image: "/projects/project1.png",
-    tags: ["React", "TailwindCSS", "Supabase"],
-    demoUrl: "#",
-    githubUrl: "#",
+    title: "Creative Agency Animated Landing Page",
+    description: "A modern creative-agency style landing page built with React, GSAP, and TailwindCSS. It features bold typography, smooth scroll animations, and an animated hero section inspired by premium agency websites.",
+    image: "/pproject img.png",
+    tags: ["React", "GSAP", "TailwindCSS"],
+    demoUrl: "https://frontend-project-seven-kappa.vercel.app/",
+    githubUrl: "https://github.com/hellojarvish61/frontend-project",
   },
   {
     id: 2,
